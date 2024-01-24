@@ -33,7 +33,7 @@ jobs:
           key: ${{ runner.os }}-build-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
 
       - name: Run deps.get
-        run: mix run deps.get, deps.compile
+        run: mix deps.get
 
       - name: Run mix test
         run: mix test
