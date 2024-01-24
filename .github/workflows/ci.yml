@@ -1,0 +1,54 @@
+on: push
+
+jobs:
+  ci:
+    env:
+      MIX_ENV: test
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        otp: [26.2]
+        elixir: [1.16]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{matrix.otp}}
+          elixir-version: ${{matrix.elixir}}
+
+      - uses: actions/cache@v1
+        id: deps-cache
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+
+      - uses: actions/cache@v1
+        id: build-cache
+        with:
+          path: _build
+          key: ${{ runner.os }}-build-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+
+      - name: Run deps.get
+        run: mix run deps.get, deps.compile
+
+      - name: Run mix test
+        run: mix test
+
+  deploy:
+    needs: ci
+
+    if: github.ref == 'refs/heads/main'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl deploy --remote-only
+        env:
+          FLY_APP: "elixir-slack"
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
