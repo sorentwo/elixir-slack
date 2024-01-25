@@ -2,6 +2,34 @@
 
 Round-robin invites to the official [Elixir Slack](https://elixir-lang.slack.com).
 
+## Contributing
+
+Add a new invite token with the following steps:
+
+1. Click on "Invite People" in the Elixir dropdown menu:
+
+   ![Open Invite People](./images/screenshot-invite-people.png)
+
+2. Click on "Edit link settings" to change the link expiration date:
+
+   ![Edit link settings](./images/screenshot-edit-link.png)
+
+3. Select "Never expires" from the expiration select menu:
+
+   ![Select never expires](./images/screenshot-set-expiration.png)
+
+4. Click "Copy invite link", paste it somewhere, and note the token at the end of the URL.
+
+5. Add the token to the `tokens` map in `runtime.exs` along with the current date:
+
+   ```elixir
+   tokens = %{
+     "zt-216sp1w4g-MHgJlFeJKTBCzPejZj7_tw" => "2024-01-24",
+     ...,
+     "YOUR NEW TOKEN HERE" => "DATE HERE"
+   }
+   ```
+
 ## Usage
 
 Build and run the app locally:
