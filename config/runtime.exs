@@ -1,7 +1,7 @@
 import Config
 
 # Tokens are listed with the date they were added to make pruning old, "dead" links easier.
-# 
+#
 # NOTE: Be sure to disable the expiration when adding invite tokens.
 #
 tokens = %{
@@ -19,7 +19,8 @@ tokens = %{
   "zt-2bmipt79c-MZQbgE7CCPdC83WTu5NAJA" => "2024-01-25",
   "zt-2b9ewhno6-HeTW_HC~2XLX9Xybkpz8mA" => "2024-01-25",
   "zt-2bh2i499g-jQzltuhuPq7KuWJP2rZkZw" => "2024-01-26",
-  "zt-2bo9jdbz8-rpKM2~paQkDOSFFljTdzzg" => "2024-01-30"
+  "zt-2bo9jdbz8-rpKM2~paQkDOSFFljTdzzg" => "2024-01-30",
+  "zt-2c3ij0zth-~i7zNOeyvPgwcG0YLgy6_w" => "2024-02-06"
 }
 
 config :elixir_slack,
