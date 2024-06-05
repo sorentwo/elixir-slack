@@ -21,7 +21,8 @@ tokens = %{
   "zt-2bh2i499g-jQzltuhuPq7KuWJP2rZkZw" => "2024-01-26",
   "zt-2bo9jdbz8-rpKM2~paQkDOSFFljTdzzg" => "2024-01-30",
   "zt-2c3ij0zth-~i7zNOeyvPgwcG0YLgy6_w" => "2024-02-06",
-  "zt-2c8kphvdw-XojPtlmd17U5uXfLl5Qhuw" => "2024-02-07"
+  "zt-2c8kphvdw-XojPtlmd17U5uXfLl5Qhuw" => "2024-02-07",
+  "zt-2k6lkeifa-kw7uUgLq5qeFf5t4~SLOJw" => "2024-06-05"
 }
 
 config :elixir_slack,
